@@ -1,12 +1,14 @@
+import sys
 from trader import Trader
 from database import Database
+from welcome import display_stonks
 
 # Initialize trader and database objects
 trader = Trader()
 database = Database()
 
-# Get user's initial balance from database
-initial_balance = database.get_balance()
+# Display programm's name
+#display_stonks()
 
 while True:
     # Display user menu
@@ -16,7 +18,7 @@ while True:
     print("3. Buy stocks")
     print("4. Sell stocks")
     print("5. Exit")
-
+    
     # Get user choice
     choice = input("Enter your choice: ")
 
@@ -44,13 +46,13 @@ while True:
 
     elif choice == "5":
         # Exit
+        print("\n==== THANK YOU ====")
         break
 
     else:
         print("Invalid choice. Please try again.")
 
-# Update user's balance in database
-database.update_balance(trader.check_balance() - initial_balance)
 
 # Close database connection
 database.close_connection()
+sys.exit()

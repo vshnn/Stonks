@@ -9,7 +9,8 @@ CREATE TABLE users (
     balance FLOAT(10, 2)
 );
 
-INSERT INTO users (id, name, email, balance) VALUES (1, 'John Doe', 'john@example.com', 10000.00);
+INSERT INTO users (id, name, email, balance) VALUES (1, 'John jose', 'john@example.com', 10000.00);
+
 
 CREATE TABLE transactions (
     id INT PRIMARY KEY AUTO_INCREMENT,
