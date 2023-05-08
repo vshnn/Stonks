@@ -20,14 +20,11 @@ class Database:
         self.cursor.execute("CREATE TABLE IF NOT EXISTS transactions (id INT PRIMARY KEY AUTO_INCREMENT, user_id INT,symbol VARCHAR(10),action VARCHAR(4),quantity INT,price FLOAT(10, 2),date DATETIME DEFAULT CURRENT_TIMESTAMP,FOREIGN KEY(user_id) REFERENCES users(id))")
         
         # Giving initial values for the user
-        print("going to insert user")
         self.cursor.execute("select * from users")
         result  = self.cursor.fetchall()
-        print(result)
         if result== []:
             self.cursor.execute("INSERT INTO users (id, name, email, balance) VALUES (1, 'John Jose', 'john@abcd.com', 10000.00)")
         self.connection.commit()
-        print("Success")
         
     def get_balance(self):
         # Get user's balance from database
