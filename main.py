@@ -8,7 +8,7 @@ trader = Trader()
 database = Database()
 
 # Display programm's name
-#display_stonks()
+display_stonks()
 
 while True:
     # Display user menu
