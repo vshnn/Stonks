@@ -1,4 +1,5 @@
 import sys
+from colorama import Fore, Style
 from trader import Trader
 from database import Database
 from welcome import display_stonks
@@ -7,25 +8,25 @@ from welcome import display_stonks
 trader = Trader()
 database = Database()
 
-# Display programm's name
+# Display program's name
 display_stonks()
 
 while True:
     # Display user menu
-    print("\n==== MENU ====")
-    print("1. Check balance")
-    print("2. Compare stocks")
-    print("3. Buy stocks")
-    print("4. Sell stocks")
-    print("5. Exit")
-    
+    print(f"{Fore.MAGENTA}\n==== M E N U ===={Style.RESET_ALL}")
+    print(f"{Fore.BLUE}1. Check balance{Style.RESET_ALL}")
+    print(f"{Fore.BLUE}2. Compare stocks{Style.RESET_ALL}")
+    print(f"{Fore.BLUE}3. Buy stocks{Style.RESET_ALL}")
+    print(f"{Fore.BLUE}4. Sell stocks{Style.RESET_ALL}")
+    print(f"{Fore.RED}5. Exit{Style.RESET_ALL}")
+
     # Get user choice
     choice = input("Enter your choice: ")
 
     if choice == "1":
         # Check balance
         balance = trader.check_balance()
-        print(f"Your balance is ${balance}")
+        print(f"Your balance is {Fore.GREEN}${balance}{Style.RESET_ALL}")
 
     elif choice == "2":
         # Compare stocks
@@ -46,12 +47,11 @@ while True:
 
     elif choice == "5":
         # Exit
-        print("\n==== THANK YOU ====")
+        print(f"\n{Fore.RED}==== THANK YOU ===={Style.RESET_ALL}")
         break
 
     else:
-        print("Invalid choice. Please try again.")
-
+        print(f"{Fore.RED}Invalid choice. Please try again.{Style.RESET_ALL}")
 
 # Close database connection
 database.close_connection()
